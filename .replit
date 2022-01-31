@@ -1,0 +1,16 @@
+language = "rust"
+
+# The command that is executed when the run button is clicked.
+run = ["cargo", "run"]
+
+# The default file opened in the editor.
+entrypoint = "src/main.rs"
+
+# Per language configuration: language.<lang name>
+[languages.rust]
+# The glob pattern to match files for this programming language
+pattern = "**/*.rs"
+
+# LSP configuration for code intelligence
+[languages.rust.languageServer]
+start = ["rust-analyzer"]
