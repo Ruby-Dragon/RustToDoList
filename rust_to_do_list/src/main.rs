@@ -12,7 +12,7 @@ fn main() {
 		let result = args::return_string(23);
 		println!("{}", result);
 
-    let mut thing = task::Task {name : "urmom".to_string(), is_complete: false, date : chrono::Local::now()};
+    let mut thing = task::Task {name : "urmom".to_string(), is_complete: false, date : chrono::NaiveDate::parse_from_str("2022-02-01", "%Y-%m-%d").unwrap()};
 
 		println!("{} , {} , {}", thing.name, thing.is_complete, thing.date);
 
