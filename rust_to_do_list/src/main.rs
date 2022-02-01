@@ -12,9 +12,9 @@ fn main() {
 		let result = args::return_string(23);
 		println!("{}", result);
 
-    let thing = task::Task {name : "urmom".to_string(), is_complete: false, date : chrono::Utc::now()};
+    let mut thing = task::Task {name : "urmom".to_string(), is_complete: false, date : chrono::Local::now()};
 
-		println!("{}", thing.name);
+		println!("{} , {} , {}", thing.get_name(), thing.get_complete(), thing.get_date();
 
 		for arg in args
 		{
