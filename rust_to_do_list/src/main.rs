@@ -14,7 +14,9 @@ fn main() {
 
     let mut thing = task::Task {name : "urmom".to_string(), is_complete: false, date : chrono::NaiveDate::parse_from_str("2022-02-01", "%Y-%m-%d").unwrap()};
 
-		println!("{} , {} , {}", thing.name, thing.is_complete, thing.date);
+		thing.is_complete = true;
+
+		println!("{}", thing.to_string());
 
 		for arg in args
 		{
