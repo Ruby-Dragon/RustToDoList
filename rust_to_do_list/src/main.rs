@@ -14,7 +14,7 @@ fn main() {
 
     let mut thing = task::Task {name : "urmom".to_string(), is_complete: false, date : chrono::Local::now()};
 
-		println!("{} , {} , {}", thing.get_name(), thing.get_complete(), thing.get_date();
+		println!("{} , {} , {}", thing.name, thing.is_complete, thing.date);
 
 		for arg in args
 		{
