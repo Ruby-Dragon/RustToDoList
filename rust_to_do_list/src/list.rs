@@ -19,7 +19,7 @@ impl TaskList
 					.task_vec[i]
 					.clone();
 			
-			final_str = format!("{}{}\n", final_str, next_task.to_string());
+			final_str = format!("{}. {}{}\n", i + 1, final_str, next_task.to_string());
 		}
 
 		return final_str;
