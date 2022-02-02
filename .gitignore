@@ -10,4 +10,4 @@ Cargo.lock
 **/*.rs.bk
 
 #used in testing
-#test.*
+test.*
