@@ -18,7 +18,9 @@ fn main() {
 
 		println!("{}", thing.to_string());
 
-		let mut thing_list = list::TaskList {last_update_date : chrono::NaiveDate::parse_from_str("2022-02-01", "%Y-%m-%d").unwrap(), task_vec : vec![thing]};
+		let mut thing_list = list::TaskList {last_update_date : chrono::NaiveDate::parse_from_str("2022-02-01", "%Y-%m-%d").unwrap(), task_vec : vec![thing.clone()]};
+
+		thing_list.add(thing.clone());
 
 		println!("{}", thing_list.to_string());
 
