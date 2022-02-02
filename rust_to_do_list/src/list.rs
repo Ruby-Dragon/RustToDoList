@@ -1,5 +1,5 @@
 use chrono;
-use crate::task::Task;
+use crate::task::*;
 
 pub struct TaskList
 {
@@ -22,7 +22,7 @@ impl TaskList
 		return final_str;
 	}
 
-	pub fn add(&mut self, mut task_to_add: crate::task::Task)
+	pub fn add(&mut self, task_to_add: crate::task::Task)
 	{
 		self.task_vec.push(task_to_add);
 	}

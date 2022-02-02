@@ -6,6 +6,6 @@ use std::path::Path;
 
 pub fn write_list_to_file(mut task_list : TaskList, filename : String)
 {
-		let mut file = std::fs::File::create(&filename).unwrap();
-		file.write_all(task_list.to_string().as_bytes());
+		let mut file = std::fs::File::create(&filename).expect("Failed to create file.");
+		file.write_all(task_list.to_string().as_bytes()).expect("Failed to write to file.");
 }
