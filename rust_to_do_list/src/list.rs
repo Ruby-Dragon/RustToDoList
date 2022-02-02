@@ -31,4 +31,9 @@ impl TaskList
 				.task_vec
 				.push(task_to_add);
 	}
+
+	pub fn remove(&mut self, index : i32)
+	{
+		
+	}
 }
