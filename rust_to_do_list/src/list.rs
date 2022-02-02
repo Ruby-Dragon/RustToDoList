@@ -15,7 +15,10 @@ impl TaskList
 
 		for i in 0..self.task_vec.len()
 		{
-			let mut next_task = self.task_vec[i].clone();
+			let mut next_task = self
+					.task_vec[i]
+					.clone();
+			
 			final_str = format!("{}{}\n", final_str, next_task.to_string());
 		}
 
@@ -24,6 +27,8 @@ impl TaskList
 
 	pub fn add(&mut self, task_to_add: crate::task::Task)
 	{
-		self.task_vec.push(task_to_add);
+		self
+				.task_vec
+				.push(task_to_add);
 	}
 }
