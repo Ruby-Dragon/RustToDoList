@@ -38,4 +38,9 @@ impl TaskList
 				.task_vec
 				.remove(index);
 	}
+
+	pub fn complete_task(&mut self, index : usize)
+	{
+		
+	}
 }
