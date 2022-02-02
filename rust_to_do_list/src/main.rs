@@ -2,6 +2,8 @@ use std::env;
 mod args;
 mod task;
 use chrono;
+mod list;
+mod files;
 
 fn main() {
 		//get cli args, and remove exec name
@@ -15,6 +17,12 @@ fn main() {
 		thing.is_complete = true;
 
 		println!("{}", thing.to_string());
+
+		let mut thing_list = list::TaskList {last_update_date : chrono::NaiveDate::parse_from_str("2022-02-01", "%Y-%m-%d").unwrap(), task_vec : vec![thing]};
+
+		println!("{}", thing_list.to_string());
+
+		files::write_list_to_file(thing_list, "test.txt".to_string());
 
 		for arg in args
 		{

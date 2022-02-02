@@ -1,6 +1,7 @@
 use chrono;
 use ansi_term;
 
+#[derive(Clone)]
 pub struct Task
 {
 	  pub name : String,
