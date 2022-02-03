@@ -27,6 +27,10 @@ fn main() {
 
 		files::write_list_to_file(thing_list, "test.txt".to_string());
 
+		let mut another_list = files::read_list_from_file("test.txt".to_string());
+
+		println!("{}", another_list.to_string());
+
 		args::parse_args(&args);
 
 		println!(" ");
