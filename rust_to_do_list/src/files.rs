@@ -6,7 +6,7 @@ use std::path::Path;
 use chrono;
 use std::io::Read;
 
-pub fn write_list_to_file(mut task_list : TaskList, filename : String){
+pub fn write_list_to_file(mut task_list : TaskList, filename : &str){
 
 		let mut file = std::fs::File::create(&filename)
 				.expect("Failed to create file.");
@@ -22,7 +22,7 @@ pub fn write_list_to_file(mut task_list : TaskList, filename : String){
 				.expect("Failed to write to file.");
 }
 
-pub fn read_list_from_file(filename : String) -> TaskList{
+pub fn read_list_from_file(filename : &str) -> TaskList{
 
 		let mut file = std::fs::File::open(&filename)
 				.expect("File cannot be opened, file may not exist.");
