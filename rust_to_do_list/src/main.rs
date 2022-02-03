@@ -27,6 +27,10 @@ fn main() {
 
 		files::write_list_to_file(thing_list, "test.txt".to_string());
 
+		args::parse_args(&args);
+
+		println!(" ");
+
 		for arg in args
 		{
 			println!("{}", arg);
