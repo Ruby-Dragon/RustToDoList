@@ -11,7 +11,15 @@ pub fn parse_args(args : &Vec<String>)
 
 		if args.len() > 0{
 				//if there are any arguments
-				println!("{}", args[0]);
+				if (args[0] == "add")
+				{
+
+				}
+				else if (args[0] == "comp")
+				{
+
+				}
+				
 				println!("{}", open_list.to_string());
 		}
 		else{
