@@ -24,9 +24,9 @@ fn main() {
 
 		println!("{}", thing_list.to_string());
 
-		files::write_list_to_file(thing_list, args::list_file_name);
+		files::write_list_to_file(thing_list, args::LIST_FILE_NAME);
 
-		let mut another_list = files::read_list_from_file(args::list_file_name);
+		let mut another_list = files::read_list_from_file(args::LIST_FILE_NAME);
 
 		println!("{}", another_list.to_string());
 

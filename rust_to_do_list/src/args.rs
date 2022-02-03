@@ -2,12 +2,12 @@ use crate::list::*;
 use crate::task::*;
 use crate::files::*;
 
-pub const list_file_name : &str= "storedtodolist.lst";
+pub const LIST_FILE_NAME : &str= "storedtodolist.lst";
 
 pub fn parse_args(args : &Vec<String>)
 {
 
-		let mut open_list : crate::list::TaskList = crate::files::read_list_from_file(list_file_name);
+		let mut open_list : crate::list::TaskList = crate::files::read_list_from_file(LIST_FILE_NAME);
 
 		if args.len() > 0{
 				//if there are any arguments
