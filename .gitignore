@@ -11,3 +11,6 @@ Cargo.lock
 
 #used in testing
 test.*
+
+#list files
+*.lst
