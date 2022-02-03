@@ -43,16 +43,18 @@ pub fn read_list_from_file(filename : String) -> TaskList{
 			let mut split_two = line.split("\t");
 			let line_vec : Vec<&str> = split_two.collect();
 
-			let comp : bool = line_vec[0].parse::<bool>()
+			if line_vec.len() >= 3{
+				let comp : bool = line_vec[0].parse::<bool>()
 					.unwrap();
 
-			let task_name : String = line_vec[1]
-					.to_string();
+				let task_name : String = line_vec[1]
+						.to_string();
 
-			let task_date : chrono::NaiveDate = chrono::NaiveDate::parse_from_str(&line_vec[2], "%Y-%m-%d").unwrap();
+				let task_date : chrono::NaiveDate = chrono::NaiveDate::parse_from_str(&line_vec[2], "%Y-%m-%d").unwrap();
 
-			let current_task : crate::task::Task = crate::task::Task {name : task_name, is_complete : comp, date : task_date};
-			final_task_list.add(current_task);
+				let current_task : crate::task::Task = crate::task::Task {name : task_name, is_complete : comp, date : task_date};
+				final_task_list.add(current_task);
+			}
 		}
 
 		return final_task_list;
