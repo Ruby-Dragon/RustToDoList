@@ -41,6 +41,8 @@ impl TaskList
 
 	pub fn complete_task(&mut self, index : usize)
 	{
-		
+		self
+				.task_vec[index]
+				.is_complete = true;
 	}
 }
