@@ -11,13 +11,21 @@ pub fn parse_args(args : &Vec<String>)
 
 		if args.len() > 0{
 				//if there are any arguments
-				if (args[0] == "add")
-				{
-
+				if args[0] == "add"{
+					if args.len() > 2{
+						
+					}
+					else{
+						println!("add requires two arguments.")
+					}
 				}
-				else if (args[0] == "comp")
-				{
-
+				else if args[0] == "comp"{
+					if args.len() > 1{
+						
+					}
+					else{
+						println!("comp requires an argument.")
+					}
 				}
 				
 				println!("{}", open_list.to_string());
