@@ -13,7 +13,7 @@ fn main() {
 		//all test code and will be removed
     let mut thing = task::Task {name : "urmom".to_string(), is_complete: false, date : chrono::NaiveDate::parse_from_str("2022-02-01", "%Y-%m-%d").unwrap()};
 
-		println!("{}", thing.to_string());
+		//println!("{}", thing.to_string());
 
 		let mut thing_list = list::TaskList {last_update_date : chrono::NaiveDate::parse_from_str("2022-02-01", "%Y-%m-%d").unwrap(), task_vec : vec![thing.clone()]};
 
@@ -22,13 +22,11 @@ fn main() {
 
 		thing_list.complete_task(0);
 
-		println!("{}", thing_list.to_string());
-
-		files::write_list_to_file(thing_list, args::LIST_FILE_NAME);
+		//println!("{}", thing_list.to_string());
 
 		let mut another_list = files::read_list_from_file(args::LIST_FILE_NAME);
 
-		println!("{}", another_list.to_string());
+		//println!("{}", another_list.to_string());
 
 		args::parse_args(&args);
 

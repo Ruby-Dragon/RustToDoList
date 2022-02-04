@@ -11,7 +11,7 @@ impl TaskList
 {
 	pub fn to_string(&mut self) -> String
 	{
-		let mut final_str : String = "".to_string();
+		let mut final_str : String = String::new();
 
 		for i in 0..self.task_vec.len()
 		{
@@ -19,7 +19,7 @@ impl TaskList
 					.task_vec[i]
 					.clone();
 			
-			final_str = format!("{}. {}{}\n", i + 1, final_str, next_task.to_string());
+			final_str = format!("{}{}. {}\n", final_str, i + 1, next_task.to_string());
 		}
 
 		return final_str;
