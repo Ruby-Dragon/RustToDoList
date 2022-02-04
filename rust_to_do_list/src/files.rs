@@ -4,6 +4,7 @@ use std::fs::File;
 use std::io::Write;
 use std::path::Path;
 use chrono;
+use chrono::Datelike;
 use std::io::Read;
 
 pub fn write_list_to_file(task_list : TaskList, filename : &str){
@@ -37,7 +38,7 @@ pub fn read_list_from_file(filename : &str) -> TaskList{
 
 		let lines_vec : Vec<&str> = split.collect();
 
-		let mut final_task_list : crate::list::TaskList = crate::list::TaskList {last_update_date : chrono::NaiveDate::parse_from_str("2022-02-01", "%Y-%m-%d").unwrap(), task_vec : Vec::new()};
+		let mut final_task_list : crate::list::TaskList = crate::list::TaskList {last_update_date : chrono::NaiveDate::from_ymd(chrono::Local::now().year(), chrono::Local::now().month(), chrono::Local::now().day() ), task_vec : Vec::new()};
 
 		for line in &lines_vec{
 			let split_two = line.split("\t");
@@ -53,7 +54,10 @@ pub fn read_list_from_file(filename : &str) -> TaskList{
 				let task_date : chrono::NaiveDate = chrono::NaiveDate::parse_from_str(&line_vec[2], "%Y-%m-%d").unwrap();
 
 				let current_task : crate::task::Task = crate::task::Task {name : task_name, is_complete : comp, date : task_date};
-				final_task_list.add(current_task);
+				if !(current_task.is_complete && current_task.date < final_task_list.last_update_date)
+				{
+					final_task_list.add(current_task);
+				}
 			}
 		}
 
