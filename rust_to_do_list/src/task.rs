@@ -20,7 +20,7 @@ impl Task
 						.strikethrough()
 						.paint(final_str), self.name, self.date);
 				
-				final_str = format!("{}DEBUGCOMP", ansi_term::Style::new()
+				final_str = format!("{}", ansi_term::Style::new()
 						.strikethrough()
 						.paint(final_str));
 			}
