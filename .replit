@@ -1,7 +1,7 @@
 language = "rust"
 
 # The command that is executed when the run button is clicked.
-run = "cd rust_to_do_list ; cargo run -- add urdad 2022-2-2"
+run = "cd rust_to_do_list ; cargo run -- comp 1"
 
 # The default file opened in the editor.
 entrypoint = "rust_to_do_list/src/main.rs"

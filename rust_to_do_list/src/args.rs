@@ -24,7 +24,13 @@ pub fn parse_args(args : &Vec<String>)
 				}
 				else if args[0] == "comp"{
 					if args.len() > 1{
-						
+						let number = args[1].parse::<usize>().expect("Comp requires an number greater than zero");
+						if number <= open_list.task_vec.len() && number > 0 {
+							open_list.task_vec[number -1].is_complete = true;
+						}
+						else{
+							println!("There is no task at number: {}.", number);
+						}
 					}
 					else{
 						println!("comp requires an argument.")
