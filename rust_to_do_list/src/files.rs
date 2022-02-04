@@ -14,7 +14,7 @@ pub fn write_list_to_file(task_list : TaskList, filename : &str){
 		let mut final_file_output : String = String::new();
 		
 		for task in &task_list.task_vec{
-				final_file_output = format!("{}\t{}\t{}\n", task.is_complete, task.name, task.date);
+				final_file_output = format!("{}{}\t{}\t{}\n", final_file_output, task.is_complete, task.name, task.date);
 		}
 
 		file.write_all(final_file_output
