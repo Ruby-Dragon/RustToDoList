@@ -1,6 +1,7 @@
 use chrono;
 use ansi_term;
 
+//let cloning happen on task - probably not neccessary
 #[derive(Clone)]
 pub struct Task
 {
