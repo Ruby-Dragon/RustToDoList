@@ -11,6 +11,8 @@ make tasks, remove tasks, and complete tasks.
 
 Note: Only Windows Terminal or a Linux terminal such as Kitty, Konsole, or Gnome Terminal will show completed tasks with a strikethrough. Any other console will not display anything to indicate completeness!
 
+It is recommended that Windows users use WSL2 to compile and run this program using Windows Terminal and set bash aliases within the WSL installation.
+
 ## Usage:
 
 	There is one list that is maintained throught usage of the program.
