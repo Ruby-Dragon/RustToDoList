@@ -1,14 +1,21 @@
 use crate::list::*;
 use crate::task::*;
 use crate::files::*;
+use std::path::Path;
 
 pub const LIST_FILE_NAME : &str= "storedtodolist.lst";
 
 pub fn parse_args(args : &Vec<String>)
 {
-
-		let mut open_list : crate::list::TaskList = crate::files::read_list_from_file(LIST_FILE_NAME);
-
+		let mut open_list : crate::list::TaskList;
+		if Path::new(LIST_FILE_NAME).exists(){
+			open_list = crate::files::read_list_from_file(LIST_FILE_NAME);
+		} else {
+			let _file = std::fs::File::create(LIST_FILE_NAME)
+				.expect("Failed to create file.");
+			open_list = crate::files::read_list_from_file(LIST_FILE_NAME);
+		}
+		
 		if args.len() > 0{
 				//if there are any arguments
 				if args[0] == "add"{

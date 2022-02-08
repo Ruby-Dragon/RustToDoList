@@ -48,6 +48,8 @@ make tasks, remove tasks, and complete tasks.
 	Move the executable from target/release to wherever you want to keep it.
 	To run, use "./rust_to_do_list" in a command line window.
 
+	If you use bash, you may want to add an alias to make it easier to use!
+
 	This process is cross platform and should work on linux, windows, and OSX.
 
 ## Licence:
