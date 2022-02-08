@@ -9,7 +9,7 @@ language. I like lists apparently.
 
 make tasks, remove tasks, and complete tasks.
 
-Note: Only Windows Terminal or a Linux terminal such as Kitty, Konsole, or Gnome Terminal will show completed tasks with a strikethrough. Any other console will not display anything!
+Note: Only Windows Terminal or a Linux terminal such as Kitty, Konsole, or Gnome Terminal will show completed tasks with a strikethrough. Any other console will not display anything to indicate completeness!
 
 ## Usage:
 
