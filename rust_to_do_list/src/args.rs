@@ -81,12 +81,12 @@ pub fn parse_args(args : &Vec<String>)
 					}
 				}
 				//print the list and save it in the file
-				println!("{}", open_list.to_string());
+				print!("{}", open_list.to_string());
 				crate::files::write_list_to_file(open_list, LIST_FILE_NAME);
 		}
 		else{
 				//print the list and save it in the file
-				println!("{}", open_list.to_string());
+				print!("{}", open_list.to_string());
 				crate::files::write_list_to_file(open_list, LIST_FILE_NAME);
 		}
 }
