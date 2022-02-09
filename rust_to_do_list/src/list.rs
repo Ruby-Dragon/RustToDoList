@@ -15,40 +15,44 @@ pub struct TaskList
 
 impl TaskList
 {
-	pub fn to_string(&mut self) -> String
-	{
-		let mut final_str : String = String::new();
-
-		for i in 0..self.task_vec.len()
+		//format in an easy to read format
+		pub fn to_string(&mut self) -> String
 		{
-			let mut next_task = self
-					.task_vec[i]
-					.clone();
-			
-			final_str = format!("{}{}. {}\n", final_str, i + 1, next_task.to_string());
+			let mut final_str : String = String::new();
+
+			for i in 0..self.task_vec.len()
+			{
+				let mut next_task = self
+						.task_vec[i]
+						.clone();
+				
+				final_str = format!("{}{}. {}\n", final_str, i + 1, next_task.to_string());
+			}
+
+			return final_str;
 		}
 
-		return final_str;
-	}
+		//add to the list
+		pub fn add(&mut self, task_to_add: crate::task::Task)
+		{
+			self
+					.task_vec
+					.push(task_to_add);
+		}
 
-	pub fn add(&mut self, task_to_add: crate::task::Task)
-	{
-		self
-				.task_vec
-				.push(task_to_add);
-	}
+		//remove from the list
+		pub fn remove(&mut self, index : usize)
+		{
+			self
+					.task_vec
+					.remove(index);
+		}
 
-	pub fn remove(&mut self, index : usize)
-	{
-		self
-				.task_vec
-				.remove(index);
-	}
-
-	pub fn complete_task(&mut self, index : usize)
-	{
-		self
-				.task_vec[index]
-				.is_complete = true;
-	}
+		//complete task at index
+		pub fn complete_task(&mut self, index : usize)
+		{
+			self
+					.task_vec[index]
+					.is_complete = true;
+		}
 }

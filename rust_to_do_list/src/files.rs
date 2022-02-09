@@ -13,6 +13,7 @@ use chrono;
 use chrono::Datelike;
 use std::io::Read;
 
+//write a list to a file in a machine readable format
 pub fn write_list_to_file(task_list : TaskList, filename : &str){
 
 		let mut file = std::fs::File::create(&filename)
@@ -29,23 +30,29 @@ pub fn write_list_to_file(task_list : TaskList, filename : &str){
 				.expect("Failed to write to file.");
 }
 
+//read a list from a file and turn into objects
 pub fn read_list_from_file(filename : &str) -> TaskList{
 
+		//open the file
 		let mut file = std::fs::File::open(&filename)
 				.expect("File cannot be opened, file may not exist.");
 
+		//whole text of a file
 		let mut whole_file_text : String = String::new();
 
 		file
 				.read_to_string(&mut whole_file_text)
 				.expect("Error in reading data, file may be corrupted or incorrectly encoded.");
 
+		//split at new lines
 		let split = whole_file_text.lines();
 
 		let lines_vec : Vec<&str> = split.collect();
 
+		//the list to be returned
 		let mut final_task_list : crate::list::TaskList = crate::list::TaskList {last_update_date : chrono::NaiveDate::from_ymd(chrono::Local::now().year(), chrono::Local::now().month(), chrono::Local::now().day() ), task_vec : Vec::new()};
 
+		//go through each line and get task object in it
 		for line in &lines_vec{
 			let split_two = line.split("\t");
 			let line_vec : Vec<&str> = split_two.collect();

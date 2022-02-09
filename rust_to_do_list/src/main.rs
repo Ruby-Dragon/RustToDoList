@@ -14,11 +14,13 @@ mod files;
 fn main() {
 		//get cli args, and remove exec name
 	  let mut args: Vec<String> = env::args().collect();
+		//remove name of program from args
 		args.remove(0);
 
+		//figure out what to do
 		args::parse_args(&args);
 		
-		/*
+		/* test code
 		for arg in args
 		{
 			println!("{}", arg);

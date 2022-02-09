@@ -7,7 +7,7 @@
 use chrono;
 use ansi_term;
 
-//let cloning happen on task - probably not neccessary
+//let cloning happen on task - probably not neccessary anymore
 #[derive(Clone)]
 pub struct Task
 {
@@ -18,9 +18,11 @@ pub struct Task
 
 impl Task
 {
+		//format task in  easily readable format
 	  pub fn to_string(&mut self) -> String
 	  {
 			let mut final_str : String = "".to_string();
+			//strikethrough if complete
 			if self.is_complete
 			{
 				final_str = format!("{}{},\tDue: {}", ansi_term::Style::new()
