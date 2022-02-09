@@ -55,6 +55,7 @@ It is recommended that Windows users use WSL2 to compile and run this program us
 	If you use bash, you may want to add an alias to make it easier to use!
 
 	This process is cross platform and should work on linux, windows, and OSX.
+	Note: disregard errors about unused imports, this is a known bug and does not impact use.
 
 ## Licence:
 
