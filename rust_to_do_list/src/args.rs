@@ -1,13 +1,13 @@
+use crate::list::*;
+use core::task::*;
+use crate::files::*;
+use std::path::Path;
+
 //GNU Public Licence v3, 2022, Ruby-Dragon
 //
 // This source is available for distribution and/or modification
 // only under the terms of the RustToDoList Source Code License as
 // published by Ruby-Dragon. All rights reserved.
-
-use crate::list::*;
-use crate::task::*;
-use crate::files::*;
-use std::path::Path;
 
 pub const LIST_FILE_NAME : &str= "storedtodolist.lst";
 
@@ -26,7 +26,7 @@ pub fn parse_args(args : &Vec<String>)
 				//if there are any arguments
 				if args[0] == "add"{
 					if args.len() > 2{
-						let new_task = crate::task::Task {name : args[1].clone(), is_complete : false, date : chrono::NaiveDate::parse_from_str(&args[2], "%Y-%m-%d")
+						let new_task = core::task::Task {name : args[1].clone(), is_complete : false, date : chrono::NaiveDate::parse_from_str(&args[2], "%Y-%m-%d")
 								.unwrap()};
 
 						open_list.add(new_task);
