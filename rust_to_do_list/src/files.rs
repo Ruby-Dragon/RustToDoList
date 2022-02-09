@@ -13,28 +13,22 @@ use chrono;
 use chrono::Datelike;
 use std::io::Read;
 
-//write a list to a file
 pub fn write_list_to_file(task_list : TaskList, filename : &str){
 
-		//make a new file - removes old file is it exists
 		let mut file = std::fs::File::create(&filename)
 				.expect("Failed to create file.");
 
-		//final string to be written to file
 		let mut final_file_output : String = String::new();
 		
-		//encode tasks into final string - similar to pcpartlist algorithm
 		for task in &task_list.task_vec{
 				final_file_output = format!("{}{}\t{}\t{}\n", final_file_output, task.is_complete, task.name, task.date);
 		}
 
-		//write to file
 		file.write_all(final_file_output
 				.as_bytes())
 				.expect("Failed to write to file.");
 }
 
-//read a list from a file
 pub fn read_list_from_file(filename : &str) -> TaskList{
 
 		let mut file = std::fs::File::open(&filename)

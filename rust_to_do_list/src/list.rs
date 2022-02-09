@@ -9,15 +9,12 @@ use crate::task::*;
 
 pub struct TaskList
 {
-		//date last updated, not used all that much atm
 		pub last_update_date : chrono::NaiveDate,
-		//vector of tasks
 		pub task_vec : Vec<crate::task::Task>
 }
 
 impl TaskList
 {
-	//to string, call to string on tasks in vector
 	pub fn to_string(&mut self) -> String
 	{
 		let mut final_str : String = String::new();
@@ -34,7 +31,6 @@ impl TaskList
 		return final_str;
 	}
 
-	//add task to list
 	pub fn add(&mut self, task_to_add: crate::task::Task)
 	{
 		self
@@ -42,7 +38,6 @@ impl TaskList
 				.push(task_to_add);
 	}
 
-	//remove task from list
 	pub fn remove(&mut self, index : usize)
 	{
 		self
@@ -50,7 +45,6 @@ impl TaskList
 				.remove(index);
 	}
 
-	//complete the task
 	pub fn complete_task(&mut self, index : usize)
 	{
 		self

@@ -7,27 +7,20 @@
 use chrono;
 use ansi_term;
 
-//let cloning happen on task - probably not neccessary after testing
+//let cloning happen on task - probably not neccessary
 #[derive(Clone)]
 pub struct Task
 {
-		//name of task
 	  pub name : String,
-		//completeness status
 	  pub is_complete: bool,
-		//date it is supposed to be completed by
 	  pub date : chrono::NaiveDate
 }
 
-//implement
 impl Task
 {
-		//to string method
 	  pub fn to_string(&mut self) -> String
 	  {
-			//final string to be returned
 			let mut final_str : String = "".to_string();
-			//if it is complete, add strikethrough
 			if self.is_complete
 			{
 				final_str = format!("{}{},\tDue: {}", ansi_term::Style::new()
@@ -38,11 +31,11 @@ impl Task
 						.strikethrough()
 						.paint(final_str));
 			}
-			else //no strikethrough
+			else
 			{
 				final_str = format!("{}{},\tDue: {}", final_str, self.name, self.date,);
 			}
 			
-			return final_str; //return the final string
+			return final_str;
 	  }
 }
