@@ -25,9 +25,7 @@ impl Task
 			//strikethrough if complete
 			if self.is_complete
 			{
-				final_str = format!("{}{},\tDue: {}", ansi_term::Style::new()
-						.strikethrough()
-						.paint(final_str), self.name, self.date);
+				final_str = format!("{}{},\tDue: {}", final_str, self.name, self.date);
 				
 				final_str = format!("{}", ansi_term::Style::new()
 						.strikethrough()
