@@ -9,7 +9,7 @@ language. I like lists apparently.
 
 make tasks, remove tasks, and complete tasks.
 
-Note: Only Windows Terminal or a Linux terminal such as Kitty, Alacritty, Konsole, or Gnome Terminal will show completed tasks with a strikethrough. Any other console will not display anything to indicate completeness! If your terminal support ANSI escape codes, then it should work.
+Note: Only Windows Terminal or a Linux terminal such as Kitty, Alacritty, Konsole, or Gnome Terminal will show completed tasks with a strikethrough. Any other console will not display anything to indicate completeness! If your terminal supports ANSI escape codes, then it should work.
 
 It is recommended that Windows users use WSL2 to compile and run this program using Windows Terminal and set bash aliases within the WSL installation.
 
