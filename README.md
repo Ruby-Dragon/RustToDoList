@@ -1,4 +1,4 @@
-# RustToDoList (WIP)
+# RustToDoList
 
 ###### GNU Public Licence v3, 2022, Ruby-Dragon
 
