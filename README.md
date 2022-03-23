@@ -2,23 +2,23 @@
 
 ###### GNU Public Licence v3, 2022, Ruby-Dragon
 
-to do list in Rust.
+A to do list in Rust.
 
 This is how I will learn Rust. Seems like a cool
 language. I like lists apparently.
 
 make tasks, remove tasks, and complete tasks.
 
-Note: Only Windows Terminal or a Linux terminal such as Kitty, Alacritty, Konsole, or Gnome Terminal will show completed tasks with a strikethrough. Any other console will not display anything to indicate completeness! If your terminal supports ANSI escape codes, then it should work.
+Note: Only Windows Terminal or a Linux terminal such as Kitty, Alacritty, Konsole, or Gnome Terminal will show completed tasks with a strikethrough. Any other console, such as CMD or Powershell, will not display anything to indicate completeness! If your terminal supports ANSI escape codes, then it should work.
 
-It is recommended that Windows users use WSL2 to compile and run this program using Windows Terminal and set bash aliases within the WSL installation.
+It is recommended that Windows users use WSL to compile and run this program using Windows Terminal and set bash aliases within the WSL installation, however this program is compatible with Windows.
 
 ## Usage:
 
 	There is one list that is maintained throught usage of the program.
 	
 	Add tasks using the add command, which takes two parameters. The first one is the task name/description. This cannot have any whitespace.
-	The second parameter is the date that the task should be completed. Date is in this format, yyyy-m-dd.
+	The second parameter is the date that the task should be completed. Date is in this format, yyyy-mm-dd.
 
 	Example of add: "add complete-program 2022-2-14" - adds task complete-program with a due date of 2022-2-14.
 
@@ -40,12 +40,12 @@ It is recommended that Windows users use WSL2 to compile and run this program us
 
 	Download the source code from github, or use git to clone the repo.
 
-	"git clone https://github.com/Ruby-Dragon/RustToDoList.git"
+		"git clone https://github.com/Ruby-Dragon/RustToDoList.git"
 
 	Open a command line window in the rust_to_do_list directory in the downloaded source code.
 	Run this command in the command line windows:
 
-	"cargo build --release"
+		"cargo build --release"
 
 	Cargo will the compile the code into an executable file.
 
@@ -55,7 +55,7 @@ It is recommended that Windows users use WSL2 to compile and run this program us
 	If you use bash, you may want to add an alias to make it easier to use!
 
 	This process is cross platform and should work on linux, windows, and OSX.
-	Note: disregard errors about unused imports, this is a known bug and does not impact use.
+	Note: disregard errors about unused imports, this is a known bug and does not impact use, I'm not sure why it does that but it does not affect the usage of this program.
 
 ## Licence:
 
