@@ -4,7 +4,7 @@
 
 A to do list in Rust.
 
-This is how I will learn Rust. Seems like a cool
+This is how I learned Rust. Seems like a cool
 language. I like lists apparently.
 
 make tasks, remove tasks, and complete tasks.
