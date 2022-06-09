@@ -14,65 +14,64 @@ use chrono::Datelike;
 use std::io::Read;
 
 //write a list to a file in a machine readable format
-pub fn write_list_to_file(task_list : TaskList, filename : &str){
+pub fn write_list_to_file(task_list: TaskList, filename: &str) {
+    let mut file = std::fs::File::create(&filename)
+        .expect(format!("Failed to create file at: {}", filename).as_str());
 
-		let mut file = std::fs::File::create(&filename)
-				.expect(format!("Failed to create file at: {}", filename).as_str());
+    let mut final_file_output: String = String::new();
 
-		let mut final_file_output : String = String::new();
-		
-		for task in &task_list.task_vec{
-				final_file_output = format!("{}{}\t{}\t{}\n", final_file_output, task.is_complete, task.name, task.date);
-		}
+    for task in &task_list.task_vec {
+        final_file_output = format!("{}{}\t{}\t{}\n", final_file_output, task.is_complete, task.name, task.date);
+    }
 
-		file.write_all(final_file_output
-				.as_bytes())
-				.expect("Failed to write to file.");
+    file.write_all(final_file_output
+        .as_bytes())
+        .expect("Failed to write to file.");
 }
 
 //read a list from a file and turn into objects
-pub fn read_list_from_file(filename : &str) -> TaskList{
+pub fn read_list_from_file(filename: &str) -> TaskList {
 
-		//open the file
-		let mut file = std::fs::File::open(&filename)
-				.expect("File cannot be opened, file may not exist.");
+    //open the file
+    let mut file = std::fs::File::open(&filename)
+        .expect("File cannot be opened, file may not exist.");
 
-		//whole text of a file
-		let mut whole_file_text : String = String::new();
+    //whole text of a file
+    let mut whole_file_text: String = String::new();
 
-		file
-				.read_to_string(&mut whole_file_text)
-				.expect("Error in reading data, file may be corrupted or incorrectly encoded.");
+    file
+        .read_to_string(&mut whole_file_text)
+        .expect("Error in reading data, file may be corrupted or incorrectly encoded.");
 
-		//split at new lines
-		let split = whole_file_text.lines();
+    //split at new lines
+    let split = whole_file_text.lines();
 
-		let lines_vec : Vec<&str> = split.collect();
+    let lines_vec: Vec<&str> = split.collect();
 
-		//the list to be returned
-		let mut final_task_list : crate::list::TaskList = crate::list::TaskList {last_update_date : chrono::NaiveDate::from_ymd(chrono::Local::now().year(), chrono::Local::now().month(), chrono::Local::now().day() ), task_vec : Vec::new()};
+    //the list to be returned
+    let mut final_task_list: crate::list::TaskList = crate::list::TaskList { last_update_date: chrono::NaiveDate::from_ymd(chrono::Local::now().year(), chrono::Local::now().month(), chrono::Local::now().day()), task_vec: Vec::new() };
 
-		//go through each line and get task object in it
-		for line in &lines_vec{
-			let split_two = line.split("\t");
-			let line_vec : Vec<&str> = split_two.collect();
+    //go through each line and get task object in it
+    for line in &lines_vec {
+        let split_two = line.split("\t");
+        let line_vec: Vec<&str> = split_two.collect();
 
-			if line_vec.len() >= 3{
-				let comp : bool = line_vec[0].parse::<bool>()
-					.unwrap();
+        if line_vec.len() >= 3 {
+            let comp: bool = line_vec[0].parse::<bool>()
+                .unwrap();
 
-				let task_name : String = line_vec[1]
-						.to_string();
+            let task_name: String = line_vec[1]
+                .to_string();
 
-				let task_date : chrono::NaiveDate = chrono::NaiveDate::parse_from_str(&line_vec[2], "%Y-%m-%d").unwrap();
+            let task_date: chrono::NaiveDate = chrono::NaiveDate::parse_from_str(&line_vec[2], "%Y-%m-%d").unwrap();
 
-				let current_task : crate::task::Task = crate::task::Task {name : task_name, is_complete : comp, date : task_date};
-				if !(current_task.is_complete && current_task.date < final_task_list.last_update_date)
-				{
-					final_task_list.add(current_task);
-				}
-			}
-		}
+            let current_task: crate::task::Task = crate::task::Task { name: task_name, is_complete: comp, date: task_date };
+            if !(current_task.is_complete && current_task.date < final_task_list.last_update_date)
+            {
+                final_task_list.add(current_task);
+            }
+        }
+    }
 
-		return final_task_list;
+    return final_task_list;
 }
