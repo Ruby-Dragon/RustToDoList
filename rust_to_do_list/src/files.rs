@@ -17,7 +17,7 @@ use std::io::Read;
 pub fn write_list_to_file(task_list : TaskList, filename : &str){
 
 		let mut file = std::fs::File::create(&filename)
-				.expect("Failed to create file.");
+				.expect(format!("Failed to create file at: {}", filename).as_str());
 
 		let mut final_file_output : String = String::new();
 		
